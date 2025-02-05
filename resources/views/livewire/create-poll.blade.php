@@ -10,10 +10,15 @@
         <div>
             @foreach ($options as $index => $optoin)
                 <div class="mb-4">
-                    <label for=""></label>
+                    <label for="">Option {{ $index + 1 }}</label>
+                    <div class="flex gap-2">
+                        <input type="text" name="" wire:model="options.{{ $index }}">
+                        <button class="btn" wire:click.prevent='removeOption({{ $index }})'>Remove</button>
+                    </div>
                 </div>
+                {{ $optoin }}
             @endforeach
-
         </div>
     </form>
+</div>
 </div>

@@ -11,12 +11,14 @@ class Option extends Model
 {
     use HasFactory;
 
-    public function poll():BelongsTo
+    protected $fillable  = ['name'];
+
+    public function poll(): BelongsTo
     {
         return $this->belongsTo(Poll::class);
     }
 
-    public function votes():HasMany
+    public function votes(): HasMany
     {
         return $this->hasMany(Vote::class);
     }

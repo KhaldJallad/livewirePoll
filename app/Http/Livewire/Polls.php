@@ -4,10 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\Poll;
 use Livewire\Component;
+use function Termwind\render;
 
 class Polls extends Component
 {
 
+    protected $listeners = [
+        'pollCreated' => 'render'
+    ];
 
     public function render()
     {

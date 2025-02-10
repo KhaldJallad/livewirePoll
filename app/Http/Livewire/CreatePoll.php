@@ -47,10 +47,14 @@ class CreatePoll extends Component
 
         Poll::create([
             'title' => $this->title,
-        ])
-            ->options()
-            ->createMany(collect($this->options)->map(fn($option) => ['name' => $option])->all());
+        ])->options()->createMany(
+            collect($this->options)
+            ->map(fn($option) => ['name' => $option])
+            ->all());
 
+            $this->emit('pollCreated');
+
+        // this code has been commited to where i use the sort cote in the code that is not the creat function
         // foreach ($this->options as $option) {
         //     $poll->options()->create([
         //         'name' => $option,

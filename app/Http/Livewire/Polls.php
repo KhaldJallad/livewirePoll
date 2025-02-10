@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Option;
 use App\Models\Poll;
 use Livewire\Component;
 use function Termwind\render;
@@ -22,5 +23,9 @@ class Polls extends Component
     }
 
 
+    public function vote(Option $option){
+
+        $option->votes()->create();
+    }
 
 }
